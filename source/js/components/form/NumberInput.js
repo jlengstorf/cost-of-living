@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class TextInput extends Component {
+class NumberInput extends Component {
 
   render () {
     return (
@@ -17,7 +17,7 @@ class TextInput extends Component {
           }
           <input
             name={this.props.inputName}
-            type="text"
+            type="number"
             defaultValue={this.props.inputValue}
             onChange={this.props.inputHandler}
           />
@@ -28,16 +28,16 @@ class TextInput extends Component {
 
 }
 
-TextInput.propTypes = {
+NumberInput.propTypes = {
   labelValue: React.PropTypes.string.isRequired,
   toolTip: React.PropTypes.string,
   inputName: React.PropTypes.string.isRequired,
-  inputValue: React.PropTypes.string.isRequired,
+  inputValue: React.PropTypes.number.isRequired,
   inputHandler: React.PropTypes.func.isRequired,
 }
 
-TextInput.defaultPropTypes = {
+NumberInput.defaultPropTypes = {
   toolTip: false,
 };
 
-export default TextInput;
+export default NumberInput;

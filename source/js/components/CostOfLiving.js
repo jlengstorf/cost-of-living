@@ -9,7 +9,7 @@ import DataSummary from './DataSummary';
 
 import TableRow from './TravelCosts/TableRow';
 
-import TextInput from './form/TextInput';
+import NumberInput from './form/NumberInput';
 
 import accounting from 'accounting';
 
@@ -137,37 +137,37 @@ class CostOfLiving extends Component {
         <form className="cost-of-living__form">
           <h2 className="cost-of-living__sub-headline">Enter Your Monthly Household Bills</h2>
           <ul className="cost-of-living__input-list">
-            <TextInput
+            <NumberInput
               labelValue="Rent or Mortgage"
               inputName="rent"
               inputValue={this.props.leaseCost.rent}
               inputHandler={this.handleUpdate.bind(this)}
             />
-            <TextInput
+            <NumberInput
               labelValue="Electric"
               inputName="electric"
               inputValue={this.props.leaseCost.electric}
               inputHandler={this.handleUpdate.bind(this)}
             />
-            <TextInput
+            <NumberInput
               labelValue="Utilities"
               inputName="utilities"
               inputValue={this.props.leaseCost.utilities}
               inputHandler={this.handleUpdate.bind(this)}
             />
-            <TextInput
+            <NumberInput
               labelValue="TV/Internet"
               inputName="tvInternet"
               inputValue={this.props.leaseCost.tvInternet}
               inputHandler={this.handleUpdate.bind(this)}
             />
-            <TextInput
+            <NumberInput
               labelValue="Renters or Homeowners Insurance"
               inputName="insurance"
               inputValue={this.props.leaseCost.insurance}
               inputHandler={this.handleUpdate.bind(this)}
             />
-            <TextInput
+            <NumberInput
               labelValue="Other Household Costs"
               toolTip="For example: cleaning services, condo or homeowners association fees, lawn care, etc."
               inputName="other"
