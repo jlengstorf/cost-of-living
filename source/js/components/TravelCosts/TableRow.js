@@ -10,7 +10,7 @@ class TableRow extends Component {
 
   render () {
     return (
-      <tr>
+      <tr className={this.props.active && 'active-row' || ''}>
         <th>{this.props.rowHeader}</th>
         {this.props.travelCosts.map((stop, index) => {
           return (
@@ -24,6 +24,7 @@ class TableRow extends Component {
 }
 
 TableRow.defaultProps = {
+  active: false,
   rowHeader: '',
   travelCosts: [],
 };

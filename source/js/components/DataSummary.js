@@ -57,13 +57,6 @@ class DataSummary extends Component {
 
     return (
       <div className="cost-of-living__summary">
-        <h3 className="cost-of-living__summary-headline">
-          Cost of Living Breakdown (USD)
-        </h3>
-        <p className="cost-of-living__summary-description">
-          This is what it costs per month to live after including all the
-          costs related to housing.
-        </p>
         <ul className="cost-of-living__summary-list">
           <li className="cost-of-living__summary-item">
             {leaseText}

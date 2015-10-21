@@ -3,9 +3,13 @@
 
 // Loads React
 import React, {Component} from 'react';
+
 import AnnualCosts from './AnnualCosts';
 import DataSummary from './DataSummary';
+
 import TableRow from './TravelCosts/TableRow';
+
+import TextInput from './form/TextInput';
 
 import accounting from 'accounting';
 
@@ -133,75 +137,46 @@ class CostOfLiving extends Component {
         <form className="cost-of-living__form">
           <h2 className="cost-of-living__sub-headline">Enter Your Monthly Household Bills</h2>
           <ul className="cost-of-living__input-list">
-            <li className="cost-of-living__input-item">
-              <label className="cost-of-living__input-group">
-                Rent or Mortgage
-                <input
-                  name="rent"
-                  type="text"
-                  defaultValue={this.props.leaseCost.rent}
-                  onChange={this.handleUpdate.bind(this)}
-                />
-              </label>
-            </li>
-            <li className="cost-of-living__input-item">
-              <label className="cost-of-living__input-group">
-                Electric
-                <input
-                  name="electric"
-                  type="text"
-                  defaultValue={this.props.leaseCost.electric}
-                  onChange={this.handleUpdate.bind(this)}
-                />
-              </label>
-            </li>
-            <li className="cost-of-living__input-item">
-              <label className="cost-of-living__input-group">
-                Utilities
-                <input
-                  name="utilities"
-                  type="text"
-                  defaultValue={this.props.leaseCost.utilities}
-                  onChange={this.handleUpdate.bind(this)}
-                />
-              </label>
-            </li>
-            <li className="cost-of-living__input-item">
-              <label className="cost-of-living__input-group">
-                TV/Internet
-                <input
-                  name="tvInternet"
-                  type="text"
-                  defaultValue={this.props.leaseCost.tvInternet}
-                  onChange={this.handleUpdate.bind(this)}
-                />
-              </label>
-            </li>
-            <li className="cost-of-living__input-item">
-              <label className="cost-of-living__input-group">
-                Renters or Homeowners Insurance
-                <input
-                  name="insurance"
-                  type="text"
-                  defaultValue={this.props.leaseCost.insurance}
-                  onChange={this.handleUpdate.bind(this)}
-                />
-              </label>
-            </li>
-            <li className="cost-of-living__input-item">
-              <label className="cost-of-living__input-group">
-                Other Household Costs (e.g. Cleaning, HOA Fees, etc.)
-                <input
-                  name="other"
-                  type="text"
-                  defaultValue={this.props.leaseCost.other}
-                  onChange={this.handleUpdate.bind(this)}
-                />
-              </label>
-            </li>
+            <TextInput
+              labelValue="Rent or Mortgage"
+              inputName="rent"
+              inputValue={this.props.leaseCost.rent}
+              inputHandler={this.handleUpdate.bind(this)}
+            />
+            <TextInput
+              labelValue="Electric"
+              inputName="electric"
+              inputValue={this.props.leaseCost.electric}
+              inputHandler={this.handleUpdate.bind(this)}
+            />
+            <TextInput
+              labelValue="Utilities"
+              inputName="utilities"
+              inputValue={this.props.leaseCost.utilities}
+              inputHandler={this.handleUpdate.bind(this)}
+            />
+            <TextInput
+              labelValue="TV/Internet"
+              inputName="tvInternet"
+              inputValue={this.props.leaseCost.tvInternet}
+              inputHandler={this.handleUpdate.bind(this)}
+            />
+            <TextInput
+              labelValue="Renters or Homeowners Insurance"
+              inputName="insurance"
+              inputValue={this.props.leaseCost.insurance}
+              inputHandler={this.handleUpdate.bind(this)}
+            />
+            <TextInput
+              labelValue="Other Household Costs"
+              toolTip="For example, cleaning services, condo or homeowners association fees, lawn care, etc."
+              inputName="other"
+              inputValue={this.props.leaseCost.other}
+              inputHandler={this.handleUpdate.bind(this)}
+            />
             <li className="cost-of-living__input-item cost-of-living__input-item--radio">
               <div className="cost-of-living__input-group">
-                Level of Balling While Traveling
+                How Do You Want to Travel?
                 <label className="cost-of-living__radio-label">
                   <input
                     name="cost-toggle"
@@ -249,10 +224,12 @@ class CostOfLiving extends Component {
             </thead>
             <tbody>
               <TableRow
-                rowHeader="Half Cheap, Half Spendy"
+                active={this.state.travelType === 'balanced'}
+                rowHeader="Half &amp; Half"
                 travelCosts={this.props.travelStops.balanced}
               />
               <TableRow
+                active={this.state.travelType === 'cheap'}
                 rowHeader="All Cheap"
                 travelCosts={this.props.travelStops.cheap}
               />
@@ -322,13 +299,13 @@ CostOfLiving.defaultProps = {
         city: 'Chiang Mai',
         months: 6,
         cost: 396,
-        flight: 608,
+        flight: 609,
       },
       {
         city: 'Zagreb',
         months: 3,
         cost: 760,
-        flight: 91,
+        flight: 547,
       },
       {
         city: 'Bali',
