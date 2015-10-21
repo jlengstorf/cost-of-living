@@ -12,7 +12,7 @@ class TextInput extends Component {
               <span
                 className="cost-of-living__tooltip"
                 data-tooltip={this.props.toolTip}
-              />
+              >?</span>
             )
           }
           <input

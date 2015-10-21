@@ -169,7 +169,7 @@ class CostOfLiving extends Component {
             />
             <TextInput
               labelValue="Other Household Costs"
-              toolTip="For example, cleaning services, condo or homeowners association fees, lawn care, etc."
+              toolTip="For example: cleaning services, condo or homeowners association fees, lawn care, etc."
               inputName="other"
               inputValue={this.props.leaseCost.other}
               inputHandler={this.handleUpdate.bind(this)}
