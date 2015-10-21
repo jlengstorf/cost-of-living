@@ -228,35 +228,37 @@ class CostOfLiving extends Component {
         <AnnualCosts {...this.state} />
         <DataSummary {...this.state} />
         <h3 className="cost-of-living__l3-headline">How Travel Costs Are Calculated</h3>
-        <table className="cost-of-living__travel-costs">
-          <thead>
-            <tr>
-              <td></td>
-              <th>Jan</th>
-              <th>Feb</th>
-              <th>Mar</th>
-              <th>Apr</th>
-              <th>May</th>
-              <th>Jun</th>
-              <th>Jul</th>
-              <th>Aug</th>
-              <th>Sep</th>
-              <th>Oct</th>
-              <th>Nov</th>
-              <th>Dec</th>
-            </tr>
-          </thead>
-          <tbody>
-            <TableRow
-              rowHeader="Half Cheap, Half Spendy"
-              travelCosts={this.props.travelStops.balanced}
-            />
-            <TableRow
-              rowHeader="All Cheap"
-              travelCosts={this.props.travelStops.cheap}
-            />
-          </tbody>
-        </table>
+        <div className="cost-of-living__travel-costs-wrapper">
+          <table className="cost-of-living__travel-costs">
+            <thead>
+              <tr>
+                <td></td>
+                <th>Jan</th>
+                <th>Feb</th>
+                <th>Mar</th>
+                <th>Apr</th>
+                <th>May</th>
+                <th>Jun</th>
+                <th>Jul</th>
+                <th>Aug</th>
+                <th>Sep</th>
+                <th>Oct</th>
+                <th>Nov</th>
+                <th>Dec</th>
+              </tr>
+            </thead>
+            <tbody>
+              <TableRow
+                rowHeader="Half Cheap, Half Spendy"
+                travelCosts={this.props.travelStops.balanced}
+              />
+              <TableRow
+                rowHeader="All Cheap"
+                travelCosts={this.props.travelStops.cheap}
+              />
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }

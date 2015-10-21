@@ -58,7 +58,7 @@ class AnnualCosts extends Component {
     };
 
     return (
-      <div className="cost-of-living__graph">
+      <div className="cost-of-living__graph aligncenter">
         <ChartistGraph {...props} />
         <ul className="cost-of-living__legend">
           <li className="cost-of-living__legend-item cost-of-living__legend-item--lease">
