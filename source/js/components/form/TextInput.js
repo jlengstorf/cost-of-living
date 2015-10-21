@@ -9,9 +9,10 @@ class TextInput extends Component {
           {this.props.labelValue}
           {!!this.props.toolTip &&
             (
-              <span className="cost-of-living__tooltip">
-                {this.props.toolTip}
-              </span>
+              <span
+                className="cost-of-living__tooltip"
+                data-tooltip={this.props.toolTip}
+              />
             )
           }
           <input
