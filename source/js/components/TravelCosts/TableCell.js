@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {formatMoney} from 'accounting';
+import {formatMoney as format} from 'accounting';
 
 class TableCell extends Component {
 
@@ -8,14 +8,24 @@ class TableCell extends Component {
   }
 
   render () {
+    let showFlight = false;
     let flightText = '';
     if (this.props.flight > 0) {
-      flightText = ` plus a ${formatMoney(this.props.flight)} plane ticket`;
+      showFlight = true;
+      flightText = `${format(this.props.flight, '$', 0)}`;
     }
 
     return (
       <td colSpan={this.props.months}>
-        {this.props.city} ({formatMoney(this.props.cost)}/month + {flightText})
+        <strong>{this.props.city}</strong>
+        <span className="travel-cost__icon travel-cost__icon--rent">
+          {format(this.props.cost, '$', 0)}/mo.
+        </span>
+        {showFlight &&
+        <span className="travel-cost__icon travel-cost__icon--flight">
+          {flightText}
+        </span>
+        }
       </td>
     );
   }

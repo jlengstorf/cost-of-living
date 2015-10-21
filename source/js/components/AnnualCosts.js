@@ -4,6 +4,7 @@
 // Loads React
 import React, {Component} from 'react';
 import ChartistGraph from 'react-chartist';
+import {formatMoney as format} from 'accounting';
 
 // Sets up a logger
 import debug from 'debug';
@@ -44,6 +45,12 @@ class AnnualCosts extends Component {
         axisX: {
           labelInterpolationFnc: function(value, index) {
             return index % 2 === 0 ? value : ' ';
+          },
+        },
+        axisY: {
+          low: 0,
+          labelInterpolationFnc: function(value, index) {
+            return format(value, '$', 0);
           },
         },
       },

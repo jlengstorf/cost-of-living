@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import accounting from 'accounting';
+import {formatMoney as format} from 'accounting';
 import debug from 'debug';
 const log = debug('components/DataSummary');
 
@@ -22,8 +22,8 @@ class DataSummary extends Component {
     const months = this.props[type].length;
     const average = Math.round(total / months);
 
-    const totalFormatted = accounting.formatMoney(total);
-    const averageFormatted = accounting.formatMoney(average);
+    const totalFormatted = format(total, '$', 0);
+    const averageFormatted = format(average, '$', 0);
 
     const label = (type === 'lease') ? 'Lease or Mortgage' : 'Travel (average)';
 
@@ -38,12 +38,12 @@ class DataSummary extends Component {
     let savingsText = '';
 
     if (totalLease > totalTravel) {
-      savings = accounting.formatMoney(totalLease - totalTravel);
+      savings = format(totalLease - totalTravel, '$', 0);
       savingsText = `You could save ${savings}/year by traveling the world.`;
     } else if (totalLease === totalTravel) {
       savingsText = 'You could travel the world for the same amount you pay to live now.';
     } else {
-      savings = accounting.formatMoney(totalTravel - totalLease);
+      savings = format(totalTravel - totalLease, '$', 0);
       savingsText = `Looks like it would cost an extra ${savings}/year for you to travel.`;
     }
 

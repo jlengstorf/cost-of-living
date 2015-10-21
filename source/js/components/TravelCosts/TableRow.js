@@ -12,9 +12,9 @@ class TableRow extends Component {
     return (
       <tr>
         <th>{this.props.rowHeader}</th>
-        {this.props.travelCosts.map(stop => {
+        {this.props.travelCosts.map((stop, index) => {
           return (
-            <TableCell {...stop} />
+            <TableCell key={index} {...stop} />
           );
         })}
       </tr>
