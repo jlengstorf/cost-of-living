@@ -12,6 +12,7 @@ import TableRow from './TravelCosts/TableRow';
 import NumberInput from './form/NumberInput';
 
 import accounting from 'accounting';
+import classnames from 'classnames';
 
 import debug from 'debug';
 const log = debug('components/CostOfLiving');
@@ -132,6 +133,19 @@ class CostOfLiving extends Component {
    * @return {Element} The React component
    */
   render () {
+    const classes = {
+      radio: {
+        balanced: classnames({
+          'cost-of-living__radio-label': true,
+          'cost-of-living__radio-label--selected': this.state.travelType === 'balanced',
+        }),
+        cheap: classnames({
+          'cost-of-living__radio-label': true,
+          'cost-of-living__radio-label--selected': this.state.travelType === 'cheap',
+        }),
+      },
+    };
+
     return (
       <div className="cost-of-living">
         <form className="cost-of-living__form">
@@ -196,7 +210,7 @@ class CostOfLiving extends Component {
           <ul className="cost-of-living__input-list">
             <li className="cost-of-living__input-item cost-of-living__input-item--radio">
               <div className="cost-of-living__input-group">
-                <label className="cost-of-living__radio-label">
+                <label className={classes.radio.balanced}>
                   <input
                     name="cost-toggle"
                     type="radio"
@@ -205,7 +219,7 @@ class CostOfLiving extends Component {
                     onChange={this.updateTravelType.bind(this)}
                   /> Half Cheap, Half Spendy
                 </label>
-                <label className="cost-of-living__radio-label">
+                <label className={classes.radio.cheap}>
                   <input
                     name="cost-toggle"
                     type="radio"
