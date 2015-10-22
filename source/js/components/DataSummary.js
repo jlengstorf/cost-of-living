@@ -40,29 +40,31 @@ class DataSummary extends Component {
     const totalTravel = this.props.travel[this.props.travel.length - 1];
 
     let savings = 0;
-    let savingsText = '';
-    let savingsValue = '';
+    let savingsTextBefore = '';
+    let savingsValue = false;
+    let savingsTextAfter = '';
 
     if (totalLease > totalTravel) {
       savings = format(totalLease - totalTravel, '$', 0);
-      savingsText = `You could save money by traveling the world:`;
+      savingsTextBefore = `You could save`;
       savingsValue = `${savings}/yr`;
+      savingsTextAfter = 'by traveling the world';
     } else if (totalLease === totalTravel) {
-      savingsText = 'You could travel the world for the same amount you pay to live now.';
-      savingsValue = false;
+      savingsTextBefore = 'You could travel the world for the same amount you pay to live now.';
     } else {
       savings = format(totalTravel - totalLease, '$', 0);
-      savingsText = 'Looks like it would cost extra to travel:';
+      savingsTextBefore = 'Looks like you’d have to spend';
       savingsValue = `${savings}/yr`;
+      savingsTextAfter = 'more to travel the world.';
     }
 
-    return {savingsText, savingsValue};
+    return {savingsTextBefore, savingsValue, savingsTextAfter};
   }
 
   render () {
     const lease = this.getCostBreakdown('lease');
     const travel = this.getCostBreakdown('travel');
-    const {savingsText, savingsValue} = this.getCostSavings();
+    const {savingsTextBefore, savingsValue, savingsTextAfter} = this.getCostSavings();
 
     return (
       <div className="cost-of-living__summary">
@@ -76,8 +78,9 @@ class DataSummary extends Component {
             <em>{travel.value}</em>
           </li>
           <li className="cost-of-living__summary-item">
-            {savingsText}
+            {savingsTextBefore}
             <strong>{savingsValue}</strong>
+            {savingsTextAfter}
           </li>
         </ul>
       </div>
