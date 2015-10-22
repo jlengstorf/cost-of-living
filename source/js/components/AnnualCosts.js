@@ -42,6 +42,7 @@ class AnnualCosts extends Component {
         stretch: true,
         low: 0,
         showArea: true,
+        fullWidth: true,
         axisX: {
           labelInterpolationFnc: function(value, index) {
             return index % 2 === 0 ? value : ' ';
