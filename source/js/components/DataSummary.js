@@ -27,7 +27,12 @@ class DataSummary extends Component {
 
     const label = (type === 'lease') ? 'Lease or Mortgage' : 'Travel (average)';
 
-    return `${label}: ${averageFormatted}/month (${totalFormatted}/year)`;
+    const breakdown = {
+      text: `${label}:`,
+      value: `${averageFormatted}/mo (${totalFormatted}/yr)`,
+    };
+
+    return breakdown;
   }
 
   getCostSavings () {
@@ -36,36 +41,43 @@ class DataSummary extends Component {
 
     let savings = 0;
     let savingsText = '';
+    let savingsValue = '';
 
     if (totalLease > totalTravel) {
       savings = format(totalLease - totalTravel, '$', 0);
-      savingsText = `You could save ${savings}/year by traveling the world.`;
+      savingsText = `You could save money by traveling the world:`;
+      savingsValue = `${savings}/yr`;
     } else if (totalLease === totalTravel) {
       savingsText = 'You could travel the world for the same amount you pay to live now.';
+      savingsValue = false;
     } else {
       savings = format(totalTravel - totalLease, '$', 0);
-      savingsText = `Looks like it would cost an extra ${savings}/year for you to travel.`;
+      savingsText = 'Looks like it would cost extra to travel:';
+      savingsValue = `${savings}/yr`;
     }
 
-    return savingsText;
+    return {savingsText, savingsValue};
   }
 
   render () {
-    const leaseText = this.getCostBreakdown('lease');
-    const travelText = this.getCostBreakdown('travel');
-    const savingsText = this.getCostSavings();
+    const lease = this.getCostBreakdown('lease');
+    const travel = this.getCostBreakdown('travel');
+    const {savingsText, savingsValue} = this.getCostSavings();
 
     return (
       <div className="cost-of-living__summary">
         <ul className="cost-of-living__summary-list">
           <li className="cost-of-living__summary-item">
-            {leaseText}
+            {lease.text}
+            <em>{lease.value}</em>
           </li>
           <li className="cost-of-living__summary-item">
-            {travelText}
+            {travel.text}
+            <em>{travel.value}</em>
           </li>
           <li className="cost-of-living__summary-item">
-            <strong>{savingsText}</strong>
+            {savingsText}
+            <strong>{savingsValue}</strong>
           </li>
         </ul>
       </div>

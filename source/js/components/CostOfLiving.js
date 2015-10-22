@@ -135,7 +135,13 @@ class CostOfLiving extends Component {
     return (
       <div className="cost-of-living">
         <form className="cost-of-living__form">
-          <h2 className="cost-of-living__sub-headline">Enter Your Monthly Household Bills</h2>
+          <h2 id="enter-bills" className="cost-of-living__sub-headline">
+            Enter Your Monthly Household Bills
+          </h2>
+          <p>
+            Add your monthly bills (in USD). Remember, it&rsquo;s more than
+            just your rent that adds to your cost of living!
+          </p>
           <ul className="cost-of-living__input-list">
             <NumberInput
               labelValue="Rent or Mortgage"
@@ -174,9 +180,22 @@ class CostOfLiving extends Component {
               inputValue={this.props.leaseCost.other}
               inputHandler={this.handleUpdate.bind(this)}
             />
+          </ul>
+          <a href="#travel-style"
+             className="cost-of-living__continue-link">Next</a>
+
+          <h2 className="cost-of-living__sub-headline"
+              id="travel-style">
+            How Do You Want to Travel?
+          </h2>
+          <p>
+            Split time between cheaper places (like Thailand) and expensive
+            places (like London and Paris)? Or keep it cheap all year in
+            low-cost countries?
+          </p>
+          <ul className="cost-of-living__input-list">
             <li className="cost-of-living__input-item cost-of-living__input-item--radio">
               <div className="cost-of-living__input-group">
-                How Do You Want to Travel?
                 <label className="cost-of-living__radio-label">
                   <input
                     name="cost-toggle"
@@ -199,7 +218,13 @@ class CostOfLiving extends Component {
             </li>
           </ul>
         </form>
-        <h2 className="cost-of-living__sub-headline">Cost of Living Breakdown</h2>
+        <a href="#cost-breakdown"
+           className="cost-of-living__continue-link">See the Comparison</a>
+
+        <h2 className="cost-of-living__sub-headline"
+            id="cost-breakdown">
+          Cost of Living Breakdown
+        </h2>
         <AnnualCosts {...this.state} />
         <DataSummary {...this.state} />
         <h3 className="cost-of-living__l3-headline">How Travel Costs Are Calculated</h3>
@@ -243,6 +268,9 @@ class CostOfLiving extends Component {
 }
 
 CostOfLiving.defaultProps = {
+
+  // Default values taken from my article here:
+  // http://lengstorf.com/cost-of-living-remotely/
   leaseCost: {
     rent: 675,
     electric: 100,
