@@ -6,6 +6,7 @@ import React, {Component} from 'react';
 
 import AnnualCosts from './AnnualCosts';
 import DataSummary from './DataSummary';
+import SharingButtons from './SharingButtons';
 
 import TableRow from './TravelCosts/TableRow';
 
@@ -146,6 +147,12 @@ class CostOfLiving extends Component {
       },
     };
 
+    const sharing = {
+      sharingText: '',
+      permalink: window.location.href.split('#')[0],
+      image: `http://lengstorf.com/images/rent-more-expensive-than-travel.jpg`,
+    };
+
     return (
       <div className="cost-of-living">
         <form className="cost-of-living__form">
@@ -241,6 +248,7 @@ class CostOfLiving extends Component {
         </h2>
         <AnnualCosts {...this.state} />
         <DataSummary {...this.state} />
+        <SharingButtons {...sharing} />
         <h3 className="cost-of-living__l3-headline">How Travel Costs Are Calculated</h3>
         <div className="cost-of-living__travel-costs-wrapper">
           <table className="cost-of-living__travel-costs">
