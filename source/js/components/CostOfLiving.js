@@ -148,7 +148,7 @@ class CostOfLiving extends Component {
     };
 
     const sharing = {
-      sharingText: '',
+      sharingText: 'World travel is probably cheaper than your rent. Use this tool to compare the cost.',
       permalink: window.location.href.split('#')[0],
       image: `http://lengstorf.com/images/rent-more-expensive-than-travel.jpg`,
     };
