@@ -6,22 +6,9 @@ import React, {Component} from 'react';
 import ChartistGraph from 'react-chartist';
 import {formatMoney as format} from 'accounting';
 
-// Sets up a logger
-import debug from 'debug';
-const log = debug('components/AnnualCosts');
-
 class AnnualCosts extends Component {
 
-  displayName: 'AnnualCosts'
-
-  constructor (props) {
-    super(props);
-  }
-
   render () {
-    log('this.props.travel', this.props.travel);
-    log('this.props.lease', this.props.lease);
-
     const props = {
       data: {
         labels: this.props.months,
