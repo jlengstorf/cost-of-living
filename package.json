@@ -1,7 +1,7 @@
 {
   "name": "cost-of-living",
   "version": "0.0.1",
-  "description": "A toy app to play with D3.js and React.js",
+  "description": "A toy app to play with React.js and Chartist.js",
   "main": "app/index.js",
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --https --port 3000 --content-base=./public --history-api-fallback --devtool source-map",
