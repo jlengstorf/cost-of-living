@@ -1,0 +1,18 @@
+{
+  "name": "cost-of-living",
+  "description": "A toy app to play with React.js and Chartist.js",
+  "main": "dist/bundle.js",
+  "authors": [
+    "Jason Lengstorf (@jlengstorf) <jason@lengstorf.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/jlengstorf/cost-of-living",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
