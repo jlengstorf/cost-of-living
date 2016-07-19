@@ -8,7 +8,7 @@ The calculator is up and running at http://lengstorf.com/cost-of-living/
 
 This tool is intended to work as a drop-in component on an existing site. As such, your best bet is to use Bower:
 
-    bower install https://github.com/jlengstorf/cost-of-living.git
+    bower install jlengstorf/cost-of-living --save
 
 You can also clone the latest version directly from GitHub:
 
