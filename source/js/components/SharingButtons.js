@@ -26,17 +26,17 @@ class SharingButtons extends Component {
           How much could your friends save by traveling? Spread the word:
           world travel is <em>much cheaper</em> than we’re led to believe!
         </p>
-        <div className="main-content__sharing">
+        <div className="main-content__sharing sharing">
             <a href={links.facebook}
-               className="main-content__sharing-link facebook">
+               className="sharing__link sharing__link--facebook">
                 <span className="sr-only">Share on Facebook</span>
             </a>
             <a href={links.twitter}
-               className="main-content__sharing-link twitter">
+               className="sharing__link sharing__link--twitter">
                 <span className="sr-only">Share on Twitter</span>
             </a>
             <a href={links.pinterest}
-               className="main-content__sharing-link pinterest">
+               className="sharing__link sharing__link--pinterest">
                 <span className="sr-only">Share on Pinterest</span>
             </a>
         </div>
